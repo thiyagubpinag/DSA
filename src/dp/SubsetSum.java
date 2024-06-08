@@ -1,32 +1,55 @@
 package dp;
 
-import java.util.Arrays;
+import java.util.*;
+import java.util.stream.IntStream;
 
 public class SubsetSum {
     public static void main(String[] args) {
-        int[] arr = {1, 5, 7, 4, 6};
-        int sum = 11;
-        int[][] memo = new int[arr.length][sum + 1];
-        for(int i=0;i<arr.length;i++){
-            Arrays.fill(memo[i],-1);
+        int[] arr = {1, 2, 1, 2, 3};
+        int k = 4;
+        int n = arr.length;
+        int[][] dp = new int[n + 1][k + 1];
+
+        // Base cases
+        for (int i = 0; i <= n; i++) {
+            dp[i][0] = 1; // One way to reach 0 (using no gifts)
         }
-        int res = subsetSum(arr, arr.length - 1, sum, memo);
-        System.out.println(res);
+
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= k; j++) {
+                // Exclude the current gift
+                dp[i][j] = dp[i - 1][j];
+
+                // Include the current gift if possible
+                if (arr[i - 1] <= j) {
+                    dp[i][j] += dp[i - 1][j - arr[i - 1]];
+                }
+            }
+        }
+
+        System.out.println(dp[n][k]);
     }
 
-    private static int subsetSum(int[] arr, int n, int sum, int[][] memo) {
-        if (n < 0 || sum < 0) {
-            return 0;
+    static int count=0;
+
+    public static void combinationUtil(int arrA[] , int sum, int currSum, int start, List<Integer> combinationList){
+
+        if(currSum==sum) {
+            count++;
+            return;
         }
-        if (memo[n][sum] != -1) return memo[n][sum];
-        if (sum == 0) {
-            return 1;
+
+        int prevElement = -1;
+        for (int i = start; i <arrA.length ; i++) {
+            if(prevElement!=arrA[i]) {
+                if(currSum+arrA[i]>sum) //array is sorted, no need to check further
+                    break;
+                combinationList.add(arrA[i]);
+                combinationUtil(arrA, sum, currSum + arrA[i], i + 1, combinationList);
+                combinationList.remove(combinationList.size() - 1);
+                prevElement = arrA[i];
+            }
         }
-        int ans;
-        int include = subsetSum(arr, n - 1, sum - arr[n], memo);
-        int exclude = subsetSum(arr, n - 1, sum, memo);
-        ans = include + exclude;
-        memo[n][sum] = ans;
-        return memo[n][sum];
     }
+
 }
