@@ -1,37 +1,40 @@
 package dp;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class PalindromicSequence {
+    static List<String> resultList = new ArrayList<>();
+
     public static void main(String[] args) {
-        String a = "ababbbabbababa";
-        int res = palindromicSequence(a,0,a.length()-1);
-        System.out.println(res);
+        String a = "aab";
+        char[] c=a.toCharArray();
+        String b=new String(c);
+        System.out.println(b);
+        palindromicSequence(a, 0, a.length() - 1);
+        System.out.println(resultList);
 
     }
 
-    static int palindromicSequence(String str, int i, int j) {
+    static void palindromicSequence(String str, int i, int j) {
         // Base case: If the substring is empty or a
         // palindrome, no cuts needed
-        if (i >= j || isPalindrome(str, i, j))
-            return 0;
-
-        int minCuts = Integer.MAX_VALUE;
-
-        // Iterate through all possible partitions and find
-        // the minimum cuts needed
-        for (int k = i; k < j; k++) {
-            int cuts = palindromicSequence(str, i, k)
-                    + palindromicSequence(str, k + 1, j) + 1;
-            minCuts = Math.min(minCuts, cuts);
+        if (i > j) {
+            return;
+        }
+        if (isPalindrome(str, i, j)) {
+            resultList.add(str.substring(i, j + 1));
         }
 
-        return minCuts;
+        for (int k = i; k < j; k++) {
+            palindromicSequence(str, i, k);
+            palindromicSequence(str, k + 1, j);
+        }
     }
 
-    static boolean isPalindrome(String str, int i, int j)
-    {
+    static boolean isPalindrome(String str, int i, int j) {
         while (i < j) {
-            if (str.charAt(i) != str.charAt(j))
-                return false;
+            if (str.charAt(i) != str.charAt(j)) return false;
             i++;
             j--;
         }

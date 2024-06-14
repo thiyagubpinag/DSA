@@ -37,6 +37,7 @@ public class Nqueen {
                 chessBoard[i][col] = 1;
                 if (findNqueen(chessBoard, col + 1, n)) {
                     flag=true;
+                    return flag;
                 }
                 chessBoard[i][col] = 0;
             }
