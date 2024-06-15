@@ -40,5 +40,6 @@ class Test5 {
 
     public static void main(String[] args) {
         numTilePossibilities("AAB");
+        System.out.println(15/4);
     }
 }
