@@ -37,6 +37,7 @@ public class SmallerNumbersThanCurrent {
             System.out.print(result[i]+" ");
         }
 
+        TreeSet<Integer> set=new TreeSet<>();
 
     }
 }

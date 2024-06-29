@@ -17,7 +17,9 @@ Algorithm:
 */
 
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 class Test5 {
@@ -40,6 +42,33 @@ class Test5 {
 
     public static void main(String[] args) {
         numTilePossibilities("AAB");
-        System.out.println(15/4);
+        System.out.println(15 / 4);
+        List<List<Integer>> A = new ArrayList<>();
+    }
+    public static List<List<Integer>> rotateImage(List<List<Integer>> matrix) {
+        int N=matrix.size();
+        // Consider all squares one by one
+        for (int x = 0; x < N / 2; x++) {
+            // Consider elements in group
+            // of 4 in current square
+            for (int y = x; y < N - x - 1; y++) {
+                // Store current cell in
+                // temp variable
+                int temp = matrix.get(x).get(y);
+
+                // Move values from right to top
+                matrix.get(x).set(y,matrix.get(y).get(N - 1 - x));
+
+                // Move values from bottom to right
+                matrix.get(y).set(N - 1 - x,matrix.get(N - 1 - x).get(N - 1 - y));
+
+                // Move values from left to bottom
+                matrix.get(N - 1 - x).set(N - 1 - y,matrix.get(N - 1 - y).get(x));
+
+                // Assign temp to left
+                matrix.get(N - 1 - y).set(x,temp);
+            }
+        }
+        return matrix;
     }
 }
