@@ -32,7 +32,7 @@ public class Parenthesis {
 
     // driver program
     public static void main(String[] args) {
-        int n = 3;
+        int n = 2;
         char[] str = new char[2 * n];
         printParenthesis(str, n);
 

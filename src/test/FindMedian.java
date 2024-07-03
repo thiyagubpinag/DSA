@@ -1,8 +1,6 @@
 package test;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.PriorityQueue;
+import java.util.*;
 
 public class FindMedian {
     public static List<Integer> findMedian(List<Integer> arr, int n) {
@@ -28,6 +26,7 @@ public class FindMedian {
                     sum += q.poll();
                 }
                 result.add(sum / mid);
+                System.out.print(Double.valueOf(sum/mid)+" ");
                 flag = false;
             }
             i++;
@@ -37,13 +36,18 @@ public class FindMedian {
     }
 
     public static void main(String[] args) {
-        int[] arr = {12, 18, 8, 18, 17, 13, 6, 18, 10, 19, 19, 7, 19, 12, 4};
+        int[] arr = {5 ,15, 1, 3};
         List<Integer> result = new ArrayList();
         for (int i = 0; i < arr.length; i++)
             result.add(arr[i]);
         List<Integer> output = findMedian(result, arr.length);
         System.out.println(output);
+        PriorityQueue p=new PriorityQueue(Collections.reverseOrder());
 
+
+    }
+    int[] get(){
+        return new int[]{-1, -1, -1, 6, 5, 4};
     }
 }
 
