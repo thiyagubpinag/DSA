@@ -4,8 +4,8 @@ import java.util.Arrays;
 
 public class LCSPrint {
     public static void main(String[] args) {
-        String a = "abcdef";
-        String b = "bckdel";
+        String a = "abac";
+        String b = "cab";
         int m = a.length();
         int n = b.length();
         int[][] memo = new int[m + 1][n + 1];
@@ -28,7 +28,7 @@ public class LCSPrint {
         System.out.println(i + "," + j);
         System.out.println(resStr.toString());
 
-        knapSackProblem("abc", 2, "");
+       // knapSackProblem("abc", 2, "");
 
     }
 

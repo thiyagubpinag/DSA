@@ -15,6 +15,7 @@ public class KruskalImplementation {
         }
     }
 
+
     static int[][] minimumSpanningTree(int n, int[][] edges) {
         Arrays.sort(edges, Comparator.comparing(i -> i[2]));
         List<Node> nodeList = new ArrayList<>();
