@@ -5,6 +5,7 @@ import java.util.List;
 
 public class CatalanNumber {
     public static void main(String[] args) {
+        int a=20;
         int n = 15;
         dp = new int[n];
         dp[0] = 1;
