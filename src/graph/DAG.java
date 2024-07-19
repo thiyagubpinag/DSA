@@ -17,9 +17,7 @@ public class DAG {
         boolean[] preStack = new boolean[N];
         boolean[] visited = new boolean[N];
         for (int i = 0; i < N; i++) {
-            if (dfsUtilsDAG(i, adjList, preStack, visited)) {
-                return true;
-            }
+            dfsUtilsDAG(i, adjList, preStack, visited);
         }
         return true;
     }
