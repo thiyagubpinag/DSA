@@ -17,7 +17,6 @@ public class KruskalImplementation {
 
 
     static int[][] minimumSpanningTree(int n, int[][] edges) {
-        Arrays.sort(edges, Comparator.comparing(i -> i[2]));
         List<Node> nodeList = new ArrayList<>();
         for (int i = 0; i <= n; i++) {
             nodeList.add(new Node(-1, 0));
@@ -69,7 +68,7 @@ public class KruskalImplementation {
     }
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        /*Scanner sc = new Scanner(System.in);
         String[] arrStr1 = sc.nextLine().split(" ");
         int n = Integer.parseInt(arrStr1[0]);
         int m = Integer.parseInt(arrStr1[1]);
@@ -79,13 +78,9 @@ public class KruskalImplementation {
             for (int j = 0; j < 3; j++) {
                 arr[i][j] = Integer.parseInt(arrStr[j]);
             }
-        }
-        int[][] result = minimumSpanningTree(n, arr);
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < 3; j++) {
-                System.out.print(result[i][j] + " ");
-            }
-            System.out.println();
-        }
+        }*/
+        int[][] edges={{3,0},{3,1},{3,2},{3,4},{5,4}};
+        int[][] result = minimumSpanningTree(6, edges);
+
     }
 }
