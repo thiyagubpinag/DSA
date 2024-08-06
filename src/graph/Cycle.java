@@ -7,8 +7,8 @@ public class Cycle {
         List<List<Integer>> graph = new ArrayList<>();
         graph.add(new ArrayList<>(List.of(0, 1)));
         graph.add(new ArrayList<>(List.of(1, 2)));
-        graph.add(new ArrayList<>(List.of(2, 3)));
-        graph.add(new ArrayList<>(List.of(0, 3)));
+        graph.add(new ArrayList<>(List.of(0, 2)));
+        //graph.add(new ArrayList<>(List.of(0, 3)));
 
         boolean res = hasValidPath(graph, 0, 2);
         System.out.println(res);
