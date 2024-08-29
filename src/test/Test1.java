@@ -1,9 +1,12 @@
 package test;
 
+import java.util.Arrays;
+
 public class Test1 {
     public static void main(String[] args) {
         int[] nums1 = {1,3,4};
         int[] nums2 = {1,3,4};
+        Arrays.stream(nums2).sum();
         int k = 1;
         System.out.println(numberOfPairs(nums1,nums2,k));
     }

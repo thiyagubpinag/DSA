@@ -45,6 +45,5 @@ public class TrappingRainWater {
             System.out.println(arr[i]*diff);
         }
 
-
     }
 }
