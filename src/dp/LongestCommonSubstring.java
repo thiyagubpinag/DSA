@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class LongestCommonSubstring {
 
     public static void main(String[] args) {
-        longestPalindrome("babad");
+        longestPalindrome("baabaad");
 
     }
     public static String longestPalindrome(String s) {
