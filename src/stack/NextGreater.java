@@ -12,13 +12,16 @@ public class NextGreater {
 
         for (int i = a.length - 1; i >= 0; i--) {
             if (!stack.isEmpty()) {
-                while (!stack.isEmpty() && a[stack.peek()] > a[i]) {
+                while (!stack.isEmpty() && a[stack.peek()] < a[i]) {
                     stack.pop();
                 }
             }
             ng[i] = stack.isEmpty() ? -1 : a[stack.peek()];
             stack.push(i);
         }
+
+        for(int i=0;i<ng.length;i++)
+            System.out.print(ng[i]);
 
     }
 }
