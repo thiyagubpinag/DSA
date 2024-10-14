@@ -5,6 +5,8 @@ import java.util.Queue;
 import java.util.concurrent.*;
 import java.util.concurrent.locks.*;
 
+import static java.lang.Thread.sleep;
+
 public class ProducerConsumerExample {
 
     private final ReentrantLock lock = new ReentrantLock();

@@ -27,7 +27,7 @@ public class CheapestFlight {
             adjList.get(u).add(new Node(v, w, 0));
         }
 
-        PriorityQueue<Node> pq = new PriorityQueue<>((i, j) -> i.w - j.w);
+        PriorityQueue<Node> pq = new PriorityQueue<>(Comparator.comparingInt(i -> i.w));
         pq.add(new Node(src, 0, 0));
         int[] dist = new int[n];
         Arrays.fill(dist, Integer.MAX_VALUE);
@@ -56,6 +56,7 @@ public class CheapestFlight {
     public static void main(String[] args) {
         CheapestFlight cheapestFlight = new CheapestFlight();
         int[][] flights = {{0, 1, 5}, {1, 2, 5}, {0, 3, 2}, {3, 1, 2}, {1, 4, 1}, {4, 2, 1}};
-        cheapestFlight.findCheapestPrice(5, flights, 0, 2, 2);
+        int price=cheapestFlight.findCheapestPrice(5, flights, 0, 2, 2);
+        System.out.println(price);
     }
 }

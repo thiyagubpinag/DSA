@@ -25,6 +25,6 @@ public class DiceCombinations {
         for (int i = 1; i <= n; i++) {
             dp[i][target] += countWays(n, target - i, dp, count + 1);
         }
-        return -1;
+        return dp[n][target];
     }
 }
