@@ -51,4 +51,5 @@ public class CountBattleShip {
         System.out.println(res);
 
     }
+
 }
