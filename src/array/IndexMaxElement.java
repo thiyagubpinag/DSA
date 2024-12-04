@@ -1,13 +1,11 @@
 package array;
 
-import com.sun.jdi.PathSearchingVirtualMachine;
-
 import java.util.Arrays;
 import java.util.Vector;
 
 public class IndexMaxElement {
     public static int indexMaxElement(Vector<Integer> nums) {
-        //Write your code here
+        // Write your code here
         int low = 0;
         int high = nums.size() - 1;
         while (low <= high) {
@@ -26,10 +24,10 @@ public class IndexMaxElement {
     }
 
     public static void main(String[] args) {
-        int[] a = {1, 2, 3, 4, 5, 2, 1};
-        Vector<Integer> nums=new Vector<>();
-        Arrays.stream(a).forEach(i->nums.add(i));
-        int index=indexMaxElement(nums);
+        int[] a = { 1, 2, 3, 4, 5, 2, 1 };
+        Vector<Integer> nums = new Vector<>();
+        Arrays.stream(a).forEach(i -> nums.add(i));
+        int index = indexMaxElement(nums);
         System.out.println(index);
     }
 
